@@ -43,6 +43,17 @@ When writing or contributing to a standard:
 
 If you found a way to improve on any of the above, consider sending a PR!
 
+(Also those may look off in Github UI, but that doesn't matter!)
+
+### Off-standard tone tags
+
+If you want to add a tone tag that is not present in the original carrd, submit
+a new standard.
+
+To create a standard, you must:
+- Create a properly formatted markdown file in `standards/`
+- Add an entry in `src/standards.rs` similar to existing ones
+
 ## Contributing code
 
 If the fix is small, simply clone the repo and submit a PR. For anything larger

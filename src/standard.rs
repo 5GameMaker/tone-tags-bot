@@ -1,5 +1,18 @@
 use std::collections::HashMap;
 
+/// Load all standards. Tone tag standards can be found in `/standards/*`.
+///
+/// By default, users have only the `core` standard enabled.
+pub fn load_all_stds() -> Result<Vec<(&'static str, Standard<'static>)>, &'static str> {
+    Ok(vec![
+        ("core", load_std(include_str!("../standards/core.md"))?),
+        (
+            "common-namtao",
+            load_std(include_str!("../standards/common_namtao.md"))?,
+        ),
+    ])
+}
+
 #[derive(Debug)]
 pub struct Standard<'a> {
     pub title: &'a str,
@@ -98,14 +111,4 @@ pub fn load_std(str: &str) -> Result<Standard, &'static str> {
         description: desc.unwrap_or_default(),
         tags,
     })
-}
-
-pub fn load_all_stds() -> Result<Vec<(&'static str, Standard<'static>)>, &'static str> {
-    Ok(vec![
-        ("core", load_std(include_str!("../standards/core.md"))?),
-        (
-            "common-namtao",
-            load_std(include_str!("../standards/common_namtao.md"))?,
-        ),
-    ])
 }

@@ -130,7 +130,7 @@ async fn report_on(str: &str, data: &Data, user: serenity::UserId) -> Result<Str
             report.push_str("**");
             report.push_str(x.0);
             report.push_str("**: ");
-            report.push_str(x.1);
+            report.push_str(x.1.trim());
         }
     }
 
